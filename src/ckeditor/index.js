@@ -1,17 +1,20 @@
 import EditorBase from "@ckeditor/ckeditor5-editor-decoupled/src/decouplededitor";
 import Essentials from "@ckeditor/ckeditor5-essentials/src/essentials";
+import Paragraph from '@ckeditor/ckeditor5-paragraph/src/paragraph';
+import Bold from '@ckeditor/ckeditor5-basic-styles/src/bold';
+import BlockWidget from "../plugins/block-widget/blockwidget";
 
 export default class CKEditorConfig extends EditorBase {
 
     static builtinPlugins = [
-        Essentials
+        Essentials,
+        Paragraph,
+        Bold,
+        BlockWidget
     ];
 
     static defaultConfig = {
-        toolbar: {
-            items: []
-        },
-        removePlugins: ['toolbar'],
+        toolbar: ['bold'],
         alignment: {
             options: ['left', 'center', 'right']
         },
