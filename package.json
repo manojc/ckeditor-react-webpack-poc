@@ -1,8 +1,8 @@
 {
-    "name": "typescript-ckeditor",
+    "name": "ckeditor-react-webpack-poc",
     "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
+    "description": "POC for ckeditor-react-webpack trio!",
+    "main": "./src/index.js",
     "scripts": {
         "start": "./node_modules/.bin/webpack  --progress --display-modules",
         "build:watch": "./node_modules/.bin/webpack  --progress --display-modules --watch"
