@@ -11,11 +11,16 @@ export default class App extends Component {
     constructor(props) {
         super(props);
         this.makeMeBold = this.makeMeBold.bind(this);
+        this.addWidget = this.addWidget.bind(this);
     }
 
     makeMeBold() {
         // console.log("clicked !", this);
         this.editor.commands.get('bold').execute('bold');
+    }
+
+    addWidget(){
+        this.editor.commands.abin('blockwidget');
     }
 
     render() {
@@ -24,9 +29,7 @@ export default class App extends Component {
                 <CKEditor
                     editor={ClassicEditor}
                     data="<p>Hellos from CKEditor 5!</p> 
-                    <section class='block-widget'>
-                      <h1 class='inside-block-widget'>hai</h1>
-                    </section>"
+                   "
                     onInit={editor => {
                         // You can store the "editor" and use when it is needed.
                         console.log('Editor is ready to use!', editor);
@@ -46,6 +49,7 @@ export default class App extends Component {
                     }}
                 />
                 <button onClick={this.makeMeBold}>B</button>
+                <button onClick={this.addWidget}>add widget</button>
             </div>
         )
     }
