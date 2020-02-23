@@ -20,7 +20,7 @@ export default class App extends Component {
     }
 
     addWidget(){
-        this.editor.commands.abin('blockwidget');
+        this.editor.commands.execute('myplugin');
     }
 
     render() {
@@ -28,8 +28,7 @@ export default class App extends Component {
             <div>
                 <CKEditor
                     editor={ClassicEditor}
-                    data="<p>Hellos from CKEditor 5!</p> 
-                   "
+                    data="<p>Hellos from CKEditor 5!</p> "
                     onInit={editor => {
                         // You can store the "editor" and use when it is needed.
                         console.log('Editor is ready to use!', editor);

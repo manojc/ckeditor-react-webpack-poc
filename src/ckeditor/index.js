@@ -3,6 +3,7 @@ import Essentials from "@ckeditor/ckeditor5-essentials/src/essentials";
 import Paragraph from '@ckeditor/ckeditor5-paragraph/src/paragraph';
 import Bold from '@ckeditor/ckeditor5-basic-styles/src/bold';
 import BlockWidget from "../plugins/block-widget/blockwidget";
+import SimplePlugin from "../plugins/simpleplugin/simplepluging";
 
 export default class CKEditorConfig extends EditorBase {
 
@@ -10,7 +11,8 @@ export default class CKEditorConfig extends EditorBase {
         Essentials,
         Paragraph,
         Bold,
-        BlockWidget
+        BlockWidget,
+        SimplePlugin
     ];
 
     static defaultConfig = {
