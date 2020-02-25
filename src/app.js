@@ -12,6 +12,7 @@ export default class App extends Component {
         super(props);
         this.makeMeBold = this.makeMeBold.bind(this);
         this.addWidget = this.addWidget.bind(this);
+        this.dropDownChanged = this.dropDownChanged.bind(this);
     }
 
     makeMeBold() {
@@ -23,32 +24,46 @@ export default class App extends Component {
         this.editor.commands.execute('myplugin');
     }
 
+    dropDownChanged(event){
+        console.log(event.target.value);       
+        this.editor.commands.execute('myplugin',{color:event.target.value});    
+    }
+
     render() {
         return (
             <div>
                 <CKEditor
                     editor={ClassicEditor}
-                    data="<p>Hellos from CKEditor 5!</p> "
+                    data="
+                    <p>
+                        test data test data
+                    </p>"
                     onInit={editor => {
                         // You can store the "editor" and use when it is needed.
                         console.log('Editor is ready to use!', editor);
                         console.log(Array.from(editor.ui.componentFactory.names()));
                         this.editor = editor;
-                        CKEditorInspector.attach( 'editor', editor );
+                        CKEditorInspector.attach( {'editor':editor} );
                     }}
                     onChange={(event, editor) => {
                         const data = editor.getData();
-                        console.log({ event, editor, data });
+                        //console.log({ event, editor, data });
                     }}
                     onBlur={(event, editor) => {
-                        console.log('Blur.', editor);
+                        //console.log('Blur.', editor);
                     }}
                     onFocus={(event, editor) => {
-                        console.log('Focus.', editor);
+                        //console.log('Focus.', editor);
                     }}
                 />
                 <button onClick={this.makeMeBold}>B</button>
-                <button onClick={this.addWidget}>add widget</button>
+                <button onClick={this.addWidget}>Give font color</button>
+                <select value="please" onChange={this.dropDownChanged}>
+                    <option value="please">please select color</option>
+                    <option value="red">red</option>
+                    <option value="blue">blue</option>
+                    <option value="green">green</option>
+                </select>
             </div>
         )
     }
